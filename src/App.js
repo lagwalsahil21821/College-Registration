@@ -2,6 +2,8 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route}  from 'react-router-dom';
 import {Home} from './pages/Home.tsx';
 import {Academic} from './pages/Academic.tsx';
+import {Hostel} from './pages/Hostel.tsx';
+import {Noc} from './pages/Noc.tsx';
 import {Login} from './pages/Login.tsx';
 import { Header } from './component/Header.tsx';
 
@@ -14,6 +16,8 @@ function App() {
           <Route path = "/" element = {<Home />} />
           <Route path = "/login" element = {<Login />} />
           <Route path = "/academic" element = {<Academic />} />
+          <Route path = "/hostel" element = {<Hostel />} />
+          <Route path = "/noc" element = {<Noc />} />
           <Route path = "*" element = {<div style = {{color: 'red'}}>Please enter a valid URL!!!</div>} />
         </Routes>
       </Router>

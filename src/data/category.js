@@ -1,16 +1,16 @@
 export default [
     {
-        id: "1",
+        id: "academic",
         name: "Academic Registration",
         image: "academic.png"
     },
     {
-        id: "2",
+        id: "hostel",
         name: "Hostel Registration",
         image: "hostel.png"
     },
     {
-        id: "3",
+        id: "noc",
         name: "NOC",
         image: "noc.png"
     }
