@@ -1,6 +1,8 @@
 import React from 'react';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import NewRegistrationBtn from '../component/NewRegistrationBtn.tsx';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     tableHeader: {
@@ -19,13 +21,18 @@ const useStyles = makeStyles((theme) => ({
 export const Dashboard = () => {
     const classes = useStyles();
     const data = [
-        { rollNo: 1, name: 'John Doe', branch: 'CS', semester: '8', verification: 'Verified', comment: 'No comment' },
-        { rollNo: 2, name: 'Jane Doe', branch: 'IT', semester: '8', verification: 'Not Verified', comment: 'Income Certificate is not valid' },
+        { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '8', verification: 'Pending', comment: 'Income Certificate is not valid' },
+        { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '7', verification: 'Verified', comment: 'No comment' },
+        { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '6', verification: 'Verified', comment: 'No comment' },
+        
         // Add more data as needed
     ];
     return (
         <div>
-            <h1>Dashboard</h1>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <h1>Dashboard</h1>
+                <NewRegistrationBtn />
+            </div>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead className={classes.tableHeader}>

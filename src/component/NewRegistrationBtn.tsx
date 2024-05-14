@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  dashboardButton: {
+  newRegistrationBtn: {
     backgroundColor: theme.palette.primary.main,
     color: 'white',
     padding: '10px 20px',
@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     transition: 'all 0.3s ease 0s',
     marginTop: '10px',
+    marginBottom: '20px',
+    alignContent: 'center',
     '&:hover': {
       backgroundColor: theme.palette.primary.dark,
     },
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 const DashboardButton = () => {
   const classes = useStyles();
   return (
-    <Link to="/" className={classes.dashboardButton}>Go to Dashboard</Link>
+    <Link to="/registration" className={classes.newRegistrationBtn}>New Registration</Link>
   );
 };
 export default DashboardButton;

@@ -15,13 +15,13 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path = "/" element = {<Home />} />
+          <Route path = "/registration" element = {<Home />} />
           <Route path = "/login" element = {<Login />} />
           <Route path = "/academic" element = {<Academic />} />
           <Route path = "/hostel" element = {<Hostel />} />
           <Route path = "/noc" element = {<Noc />} />
           <Route path = "/academic/bachelor" element = {<Bachelor />} />
-          <Route path = "/dashboard" element = {<Dashboard />} />
+          <Route path = "/" element = {<Dashboard />} />
           <Route path = "*" element = {<div style = {{color: 'red'}}>Please enter a valid URL!!!</div>} />
         </Routes>
       </Router>
