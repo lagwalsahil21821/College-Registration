@@ -1,10 +1,13 @@
 import * as React from 'react';
 import ordinances from '../data/ordinances';
 import { useNavigate } from 'react-router-dom';
+import DashboardButton  from './DashboardButton.tsx';
 
 export const Academic = () => {
     const navigate = useNavigate();
     return <div>
+        <DashboardButton />
+        
         <h2 style={{display: 'flex', justifyContent: "center", fontSize: "2.5rem"}}>Programmes</h2>
         <div className = "academicContainer">
             {ordinances.map((ordinance) => {

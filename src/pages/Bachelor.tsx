@@ -5,7 +5,9 @@ import * as Yup from 'yup';
 import {
     Container,
     Grid,
-    Typography
+    Typography,
+    Paper,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow
   } from '@material-ui/core';
 import Textfield from '../component/FormsUI/Textfield';
 import Select from '../component/FormsUI/Select';
@@ -15,6 +17,7 @@ import Button from '../component/FormsUI/Button';
 import countries from '../data/countries.json';
 import { Snackbar } from '@material-ui/core';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+import DashboardButton from './DashboardButton.tsx';
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -25,6 +28,15 @@ function Alert(props: AlertProps) {
       marginTop: theme.spacing(5),
       marginBottom: theme.spacing(8),
     },
+    tableHeader: {
+        backgroundColor: '#dee7ed', // change this to your preferred color
+    },
+    tableCell: {
+        borderRight: '1px solid #fff', // add a right border to all cells
+    },
+    tableCell1: {
+        borderRight: '1px solid #d3d3d3', // add a right border to all cells
+    }
   }));
 
   const INITIAL_FORM_STATE = {
@@ -121,6 +133,11 @@ function Alert(props: AlertProps) {
 export const Bachelor = () => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
+    const [fileName, setFileName] = useState('');
+
+    const handleFileChange = (event) => {
+    setFileName(event.target.files[0].name);
+    };
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
           return;
@@ -129,6 +146,9 @@ export const Bachelor = () => {
       };
     return (
         <Grid container>
+          <Grid item xs={12}>
+            <DashboardButton />
+          </Grid>
           <Grid item xs={12}>
             <Typography variant="h3" align="center" style={{ marginTop: '50px' }}>Registration Form</Typography>
           </Grid>
@@ -434,6 +454,16 @@ export const Bachelor = () => {
                           label="Date of Transaction"
                         />
                       </Grid>
+
+                      <Grid item xs={12} style={{marginTop: '20px'}}>
+                        <hr color='#d3d3d3'></hr>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                      <Typography style={{fontSize: '1.4rem'}}>
+                          Upload Scanned Document
+                        </Typography>
+                      </Grid>
     
                       {/* <Grid item xs={12}>
                         <Textfield
@@ -443,8 +473,43 @@ export const Bachelor = () => {
                           rows={4}
                         />
                       </Grid> */}
-    
-                      <Grid item xs={12}>
+
+                      <TableContainer component={Paper}>
+                        <Table>
+                        <TableHead className={classes.tableHeader}>
+                            <TableRow>
+                                <TableCell className={classes.tableCell}>Sr No.</TableCell>
+                                <TableCell className={classes.tableCell}>Document Name</TableCell>
+                                <TableCell className={classes.tableCell}>Upload</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {['Fee Receipt', 'Category Certificate', 'Income Certificate'].map((docName, index) => (
+                            <TableRow key={index}>
+                                <TableCell className={classes.tableCell1}>{index + 1}</TableCell>
+                                <TableCell className={classes.tableCell1}>{docName}</TableCell>
+                                <TableCell className={classes.tableCell1}>
+                                <input
+                                    accept="application/pdf" // accept only PDF files
+                                    style={{ display: 'none' }}
+                                    id={`raised-button-file-${index}`}
+                                    type="file"
+                                    onChange={handleFileChange}
+                                    />
+                                <label htmlFor={`raised-button-file-${index}`}>
+                                    <Button variant="raised" component="span">
+                                    Upload
+                                    </Button>
+                                </label>
+                                <p>{fileName}</p>
+                                </TableCell>
+                            </TableRow>
+                            ))}
+                        </TableBody>
+                        </Table>
+                    </TableContainer>
+
+                    <Grid item xs={12}>
                         <Typography variant="h5" align="center" style={{ marginTop: '20px' }}>Undertaking for Payment/Clearance of Dues</Typography>
                       </Grid>
                       <Grid item xs={12}>
@@ -453,13 +518,13 @@ export const Bachelor = () => {
                           legend=""
                           label="I undertake to pay/clear the Dues, if any, found outstanding against my name at Library, Hostel, Accounts and any other Department/Section, as per the directions/notification of the authorities."
                         />
-                      </Grid>
-    
+                    </Grid>
                       <Grid item xs={12} style={{marginTop: '20px'}}>
                         <Button >
                           Submit
                         </Button>
                       </Grid>
+
     
     
                     </Grid>

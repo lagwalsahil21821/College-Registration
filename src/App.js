@@ -5,6 +5,7 @@ import {Academic} from './pages/Academic.tsx';
 import {Hostel} from './pages/Hostel.tsx';
 import {Noc} from './pages/Noc.tsx';
 import {Login} from './pages/Login.tsx';
+import { Dashboard } from './pages/Dashboard.tsx';
 import { Header } from './component/Header.tsx';
 import { Bachelor } from './pages/Bachelor.tsx';
 
@@ -20,6 +21,7 @@ function App() {
           <Route path = "/hostel" element = {<Hostel />} />
           <Route path = "/noc" element = {<Noc />} />
           <Route path = "/academic/bachelor" element = {<Bachelor />} />
+          <Route path = "/dashboard" element = {<Dashboard />} />
           <Route path = "*" element = {<div style = {{color: 'red'}}>Please enter a valid URL!!!</div>} />
         </Routes>
       </Router>
