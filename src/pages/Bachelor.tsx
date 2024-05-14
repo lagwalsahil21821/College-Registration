@@ -17,7 +17,7 @@ import Button from '../component/FormsUI/Button';
 import countries from '../data/countries.json';
 import { Snackbar } from '@material-ui/core';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
-import DashboardButton from './DashboardButton.tsx';
+import DashboardButton from '../component/DashboardButton.tsx';
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;

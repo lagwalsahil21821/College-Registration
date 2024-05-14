@@ -7,9 +7,9 @@ export const Header = () => {
         <div>
             <img src = {nith_logo} alt = "NITH Logo" style={{height: '10rem', width: '100'}}/>
         </div>
-        <div className='loginSection'>
+        {/* <div className='loginSection'>
             <img src = {avatar} alt = "Avatar" style={{height: '50px', width: '50px', borderRadius: '50%'}}/>
-            <h3 style = {{color: "#d3d3d3"}}>Login</h3>
-        </div>
+            <h3 style = {{color: "#d3d3d3"}}>Sahil Lagwal</h3>
+        </div> */}
     </header>
 }

@@ -1,11 +1,11 @@
 export default [
     {
         id: "bachelor",
-        name: "Bachelor Ordinances"
+        name: "Bachelor Degree"
     },
     {
         id: "master",
-        name: "Master Ordinances"
+        name: "Master Degree"
     },
     {
         id: "doctoral",

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ordinances from '../data/ordinances';
 import { useNavigate } from 'react-router-dom';
-import DashboardButton  from './DashboardButton.tsx';
+import DashboardButton  from '../component/DashboardButton.tsx';
 
 export const Academic = () => {
     const navigate = useNavigate();
