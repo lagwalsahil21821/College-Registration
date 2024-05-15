@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardButton = () => {
+const NewRegistrationBtn = () => {
   const classes = useStyles();
   return (
     <Link to="/registration" className={classes.newRegistrationBtn}>New Registration</Link>
   );
 };
-export default DashboardButton;
+export default NewRegistrationBtn;

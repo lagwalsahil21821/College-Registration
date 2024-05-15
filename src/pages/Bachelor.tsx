@@ -131,6 +131,7 @@ function Alert(props: AlertProps) {
   });
 
 export const Bachelor = () => {
+  const [formValues, setFormValues] = useState(INITIAL_FORM_STATE);
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     const [fileName, setFileName] = useState('');
@@ -147,7 +148,7 @@ export const Bachelor = () => {
     return (
         <Grid container>
           <Grid item xs={12}>
-            <DashboardButton />
+            <DashboardButton formValues = {formValues}/>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h3" align="center" style={{ marginTop: '50px' }}>Registration Form</Typography>
@@ -162,6 +163,7 @@ export const Bachelor = () => {
                   }}
                   validationSchema={FORM_VALIDATION}
                   onSubmit={(values, {resetForm}) => {
+                    setFormValues(values);
                     console.log(values);
                     resetForm();
                     setOpen(true);

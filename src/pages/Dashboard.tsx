@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import NewRegistrationBtn from '../component/NewRegistrationBtn.tsx';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     tableHeader: {
@@ -19,18 +20,32 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export const Dashboard = (props) => {
-    const logOut = () => {
-        window.localStorage.clear();
-        window.location.href = "./sign-in";
-    };
+    const location = useLocation();
+    const formValues = location.state?.formValues;
+    console.log("hey", formValues);
+    type DataType = {
+        rollNo: string;
+        name: string;
+        branch: string;
+        semester: string;
+        verification: string;
+        comment: string;
+        
+      }[];
+      const logOut = () => {
+          window.localStorage.clear();
+          window.location.href = "./sign-in";
+        };
     const classes = useStyles();
-    const data = [
+    var data = [
         { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '8', verification: 'Pending', comment: 'Income Certificate is not valid' },
         { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '7', verification: 'Verified', comment: 'No comment' },
         { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '6', verification: 'Verified', comment: 'No comment' },
-        
-        // Add more data as needed
     ];
+    if(formValues){
+        const newEntry = { rollNo: formValues.rollno, name: formValues.firstName + " " + formValues.lastName, branch: 'Computer Science & Engineering', semester: formValues.semesterNumber, verification: 'Pending', comment: 'No comment' };
+        data.push(newEntry);
+    }
     return (
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
