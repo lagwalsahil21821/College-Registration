@@ -18,7 +18,11 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-export const Dashboard = () => {
+export const Dashboard = (props) => {
+    const logOut = () => {
+        window.localStorage.clear();
+        window.location.href = "./sign-in";
+    };
     const classes = useStyles();
     const data = [
         { rollNo: '20BCS057', name: 'Sahil Lagwal', branch: 'Computer Science & Engineering', semester: '8', verification: 'Pending', comment: 'Income Certificate is not valid' },
@@ -31,7 +35,26 @@ export const Dashboard = () => {
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <h1>Dashboard</h1>
+                <div style={{gap: '1rem'}}>
                 <NewRegistrationBtn />
+                <div onClick={logOut} className="btn btn-primary" style={{
+                    backgroundColor: '#303f9f',
+                    color: 'white',
+                    padding: '8px 20px',
+                    textDecoration: 'none',
+                    borderRadius: '4px',
+                    display: 'inline-block',
+                    transition: 'all 0.3s ease 0s',
+                    marginTop: '14px',
+                    marginBottom: '20px',
+                    alignContent: 'center',
+                    marginLeft: '1rem',
+                }}>
+                    Log Out
+                </div>
+                {/* <LogoutBtn /> */}
+                </div>
+
             </div>
             <TableContainer component={Paper}>
                 <Table>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { faTrash,faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
 
 export default function AdminHome({}) {
   //setting state
@@ -89,6 +91,8 @@ export default function AdminHome({}) {
             <th>Name</th>
             <th>Email</th>
             <th>User Type</th>
+            <th>Status</th>
+            <th>Verify</th> {/* Add a new header for the Verify link */}
             <th>Delete</th>
           </tr>
           {data.map((i) => {
@@ -97,6 +101,8 @@ export default function AdminHome({}) {
                 <td>{i.fname}</td>
                 <td>{i.email}</td>
                 <td>{i.userType}</td>
+                <td>{i.status}</td>
+                <td><Link to="/verify">Verify</Link></td> {/* Add a new cell with the Verify link */}
                 <td>
                   <FontAwesomeIcon
                     icon={faTrash}

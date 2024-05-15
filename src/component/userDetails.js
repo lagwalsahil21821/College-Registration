@@ -37,5 +37,5 @@ export default function UserDetails() {
   }, []);
 
   // return admin ? <AdminHome /> : <Dashboard userData={userData} />;
-  return admin ? <AdminHome /> : <Dashboard />;
+  return admin ? <AdminHome /> : <Dashboard userData = {userData}/>;
 }

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const DashboardButton = () => {
   const classes = useStyles();
   return (
-    <Link to="/" className={classes.dashboardButton}>Go to Dashboard</Link>
+    <Link to="/dashboard1" className={classes.dashboardButton}>Go to Dashboard</Link>
   );
 };
 export default DashboardButton;

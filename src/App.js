@@ -11,15 +11,17 @@ import UserDetails from './component/userDetails.js';
 import { Dashboard } from './pages/Dashboard.tsx';
 import { Header } from './component/Header.tsx';
 import { Bachelor } from './pages/Bachelor.tsx';
+import { AdminVerify } from './pages/AdminVerify.tsx';
 
 function App() {
   const isLoggedIn = window.localStorage.getItem('loggedIn');
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header isLoggedIn = {isLoggedIn}/>
         <Routes>
           <Route exact path = "/" element = {isLoggedIn ? <UserDetails />: <Login />} />
+          <Route path = "/dashboard1" element = {<Dashboard />} />
           <Route path = "/sign-in" element = {<Login />} />
           <Route path = "/sign-up" element = {<SignUp />} />
           <Route path = "/registration" element = {<Home />} />
@@ -28,6 +30,10 @@ function App() {
           <Route path = "/hostel" element = {<Hostel />} />
           <Route path = "/noc" element = {<Noc />} />
           <Route path = "/academic/bachelor" element = {<Bachelor />} />
+          <Route path = "/academic/master" element = {<Bachelor />} />
+          <Route path = "/academic/doctoral" element = {<Bachelor />} />
+          <Route path = "/verify" element = {<AdminVerify />} />
+
           <Route path = "*" element = {<div style = {{color: 'red'}}>Please enter a valid URL!!!</div>} />
         </Routes>
       </Router>
